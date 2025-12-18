@@ -1,0 +1,28 @@
+services:
+  php:
+    build: 
+      context: "../.."
+      dockerfile: ./pag-simp/docker/Dockerfile
+    ports:
+      - "8000:8000"
+    container_name: pag-simp-backend
+    volumes:
+      - ../backend/:/www/backend
+    working_dir: /www/backend
+    networks:
+      - app
+
+  postgresql:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: MxBXgTjtv0
+      POSTGRES_DB: pag-simp
+    ports:
+      - "5432:5432"
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
