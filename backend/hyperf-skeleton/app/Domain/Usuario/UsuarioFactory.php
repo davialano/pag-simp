@@ -14,6 +14,13 @@ use InvalidArgumentException;
  */
 final class UsuarioFactory
 {
+    /**
+     * Method to create user object.
+     * 
+     * @param array $params
+     * 
+     * @return Usuario
+     */
     public static function create(array $params): Usuario
     {
         if (! isset($params['tipoUsuario'])) {

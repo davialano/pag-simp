@@ -13,5 +13,12 @@ use App\Domain\Usuario\Usuario;
  */
 interface UsuarioRepositoryInterface
 {
+    /**
+     * Method to persist user information.
+     * 
+     * @param Usuario $usuario
+     * 
+     * @return Usuario
+     */
     public function save(Usuario $usuario): Usuario;
 }

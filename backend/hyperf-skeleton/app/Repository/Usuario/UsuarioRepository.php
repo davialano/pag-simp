@@ -14,6 +14,13 @@ use Hyperf\DbConnection\Db;
  */
 class UsuarioRepository implements UsuarioRepositoryInterface
 {
+    /**
+     * Method to persist user information.
+     * 
+     * @param Usuario $usuario
+     * 
+     * @return Usuario
+     */
     public function save(Usuario $usuario): Usuario
     {
         Db::table('usuarios')->insert([

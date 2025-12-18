@@ -14,6 +14,13 @@ use App\Repository\Usuario\UsuarioRepositoryInterface;
  */
 final class UsuarioService
 {
+    /**
+     * Method constructor.
+     * 
+     * @param UsuarioRepositoryInterface $repository
+     * 
+     * @return void
+     */
     public function __construct(
         private UsuarioRepositoryInterface $repository
     ) {}

@@ -17,6 +17,15 @@ use Throwable;
  */
 class UsuarioController
 {
+    /**
+     * Method constructor.
+     * 
+     * @param RequestInterface $request
+     * @param ResponseInterface $response
+     * @param UsuarioService $service
+     * 
+     * @return void
+     */
     public function __construct(
         private RequestInterface $request,
         private ResponseInterface $response,

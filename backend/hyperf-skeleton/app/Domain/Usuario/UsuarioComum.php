@@ -13,6 +13,17 @@ use InvalidArgumentException;
  */
 final class UsuarioComum extends Usuario
 {
+
+    /**
+     * Method constructor.
+     * 
+     * @param string $nome
+     * @param string $email
+     * @param string $cpf
+     * @param string $senha
+     * 
+     * @return void
+     */
     public function __construct(
         string $nome,
         string $email,
@@ -26,11 +37,21 @@ final class UsuarioComum extends Usuario
         parent::__construct($nome, $email, 'C', $senha);
     }
 
+    /**
+     * Getter cpf.
+     * 
+     * @return ?string
+     */
     public function cpf(): ?string
     {
         return $this->cpf;
     }
 
+    /**
+     * Getter cnpj.
+     * 
+     * @return ?string
+     */
     public function cnpj(): ?string
     {
         return null;
