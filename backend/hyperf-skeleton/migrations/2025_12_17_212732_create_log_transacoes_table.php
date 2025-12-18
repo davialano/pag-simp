@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedInteger('transacao_id');
             $table->enum('status', ['S', 'E'])->comment('S = Sucesso, E = Erro');
             $table->string('mensagem', 255);
-            $table->string('aux_1', 100);
-            $table->string('aux_2', 100);
+            $table->string('aux_1', 100)->nullable();
+            $table->string('aux_2', 100)->nullable();
             $table->timestamps();
 
             $table->foreign('transacao_id')->references('id')->on('transacoes')->onDelete('restrict');
