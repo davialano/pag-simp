@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('log_transacoes', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('transacao_id');
+            $table->unsignedInteger('transacao_id')->nullable();
             $table->enum('status', ['S', 'E'])->comment('S = Sucesso, E = Erro');
             $table->string('mensagem', 255);
             $table->string('aux_1', 100)->nullable();

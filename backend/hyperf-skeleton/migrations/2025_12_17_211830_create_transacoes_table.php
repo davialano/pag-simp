@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id');
             $table->decimal('valor');
             $table->unsignedInteger('pagador_id');
-            $table->unsignedInteger('beneficiario_id');
+            $table->unsignedInteger('beneficiario_id')->nullable();
             $table->enum('tipo_transacao', ['T', 'D'])->comment('T = Transferência, D = Depósito');
             $table->string('aux_1', 100)->nullable();
             $table->string('aux_2', 100)->nullable();
