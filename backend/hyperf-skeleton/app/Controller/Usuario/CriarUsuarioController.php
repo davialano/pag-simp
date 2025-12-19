@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace App\Controller\Usuario;
 
 use App\Service\Usuario\CriarUsuarioService;
+use DomainException;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use InvalidArgumentException;
@@ -49,6 +50,10 @@ class CriarUsuarioController
             ];
 
             return $this->response->json($this->service->create($params))->withStatus(201);
+        } catch (DomainException $de) {
+            return $this->response->json([
+                'errors' => $de->getMessage(),
+            ])->withStatus(406);
         } catch (InvalidArgumentException $iae) {
             return $this->response->json([
                 'errors' => $iae->getMessage(),

@@ -20,6 +20,16 @@ use App\Domain\Usuario\Usuario;
 interface CriarUsuarioRepositoryInterface
 {
     /**
+     * Method to search by document CPF or CNPJ.
+     */
+    public function searchByDocument(?string $cpf, ?string $cnpj): bool;
+
+    /**
+     * Method to search by email.
+     */
+    public function searchByEmail(string $email): bool;
+
+    /**
      * Method to save user.
      */
     public function save(Usuario $usuario): array;

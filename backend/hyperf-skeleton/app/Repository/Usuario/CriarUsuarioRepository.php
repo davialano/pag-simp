@@ -21,6 +21,34 @@ use Hyperf\DbConnection\Db;
 class CriarUsuarioRepository implements CriarUsuarioRepositoryInterface
 {
     /**
+     * Method to search by document CPF or CNPJ.
+     */
+    public function searchByDocument(?string $cpf, ?string $cnpj): bool
+    {
+        if ($cpf) {
+            $data = Db::table('usuarios')->where('cpf', $cpf)->first();
+
+            return $data ? true : false;
+        }
+        if ($cnpj) {
+            $data = Db::table('usuarios')->where('cnpj', $cnpj)->first();
+
+            return $data ? true : false;
+        }
+        return false;
+    }
+
+    /**
+     * Method to search by email.
+     */
+    public function searchByEmail(string $email): bool
+    {
+        $data = Db::table('usuarios')->where('email', $email)->first();
+
+        return $data ? true : false;
+    }
+
+    /**
      * Method to save user.
      */
     public function save(Usuario $usuario): array

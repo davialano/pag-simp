@@ -31,6 +31,10 @@ final class UsuarioFactory
             throw new InvalidArgumentException('Tipo de usuário é obrigatório');
         }
 
+        if ($params['email'] === null) {
+            throw new InvalidArgumentException('Email é obrigatório');
+        }
+
         return match (TipoUsuario::from($tipoUsuario)) {
             TipoUsuario::Comum => new UsuarioComum(
                 nome: $params['nome'],
