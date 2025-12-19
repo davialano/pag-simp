@@ -17,6 +17,7 @@ use App\Domain\Transacao\Transacao;
 use App\Repository\Conta\Depositar\DepositarContaRepositoryInterface;
 use App\Repository\Log\LogTransacaoRepositoryInterface;
 use App\Repository\Transacao\Depositar\DepositarTransacaoRepositoryInterface;
+use DomainException;
 use Hyperf\DbConnection\Db;
 use Throwable;
 
@@ -44,6 +45,10 @@ final class DepositarContaService
 
         try {
             $transacaoId = Db::transaction(function () use ($params) {
+                if (! $this->repositoryConta->searchByAccount($params['accountId'])) {
+                    throw new DomainException('Conta não existe');
+                }
+
                 $conta = $this->repositoryConta->search($params['accountId']);
                 $conta->podeEfetuarDeposito();
                 $conta->depositar($params['valor']);

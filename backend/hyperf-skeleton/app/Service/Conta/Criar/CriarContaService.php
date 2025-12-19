@@ -14,6 +14,7 @@ namespace App\Service\Conta\Criar;
 
 use App\Domain\Conta\Conta;
 use App\Repository\Conta\Criar\CriarContaRepositoryInterface;
+use DomainException;
 
 /**
  * class CriarContaService.
@@ -33,6 +34,10 @@ final class CriarContaService
      */
     public function create(int $usuarioId): array
     {
+        if (! $this->repository->searchByUserId($usuarioId)) {
+            throw new DomainException('Usuário não existe');
+        }
+
         $conta = new Conta(
             numero: $this->genAccountNumber(),
             usuarioId: $usuarioId,

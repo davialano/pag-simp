@@ -20,6 +20,11 @@ use App\Domain\Conta\Conta;
 interface DepositarContaRepositoryInterface
 {
     /**
+     * Method to search by account id.
+     */
+    public function searchByAccount(int $accountId): bool;
+
+    /**
      * Method to search for account.
      */
     public function search(int $accountId): Conta;

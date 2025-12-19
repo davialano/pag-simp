@@ -54,6 +54,10 @@ final class TransferirContaService
             //     throw new DomainException('Transferência não autorizada');
             // }
 
+            if ($params['pagadorId'] === $params['beneficiarioId']) {
+                throw new DomainException('Não é possível transferir para sua própria conta');
+            }
+
             $transacaoId = Db::transaction(function () use ($params) {
                 $pagador = $this->repositoryConta->search($params['pagadorId']);
                 $beneficiario = $this->repositoryConta->search($params['beneficiarioId']);

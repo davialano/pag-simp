@@ -20,6 +20,11 @@ use App\Domain\Conta\Conta;
 interface CriarContaRepositoryInterface
 {
     /**
+     * Method to search by user id.
+     */
+    public function searchByUserId(int $usuarioId): bool;
+
+    /**
      * Method to save account.
      */
     public function save(Conta $conta): array;

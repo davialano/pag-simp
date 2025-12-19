@@ -22,6 +22,16 @@ use Hyperf\DbConnection\Db;
 class DepositarContaRepository implements DepositarContaRepositoryInterface
 {
     /**
+     * Method to search by account id.
+     */
+    public function searchByAccount(int $accountId): bool
+    {
+        $data = Db::table('contas')->where('id', $accountId)->first();
+
+        return $data ? true : false;
+    }
+
+    /**
      * Method to search for account.
      */
     public function search(int $accountId): Conta

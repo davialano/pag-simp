@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace App\Controller\Conta\Transferir;
 
 use App\Service\Conta\Transferir\TransferirContaService;
+use DomainException;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use Throwable;
@@ -45,6 +46,10 @@ class TransferirContaController
             ];
 
             return $this->response->json($this->service->transfer($params))->withStatus(201);
+        } catch (DomainException $de) {
+            return $this->response->json([
+                'errors' => $de->getMessage(),
+            ])->withStatus(406);
         } catch (Throwable $th) {
             return $this->response->json([
                 'errors' => $th->getMessage(),

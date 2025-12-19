@@ -21,6 +21,16 @@ use Hyperf\DbConnection\Db;
 class CriarContaRepository implements CriarContaRepositoryInterface
 {
     /**
+     * Method to search by user id.
+     */
+    public function searchByUserId(int $usuarioId): bool
+    {
+        $data = Db::table('usuarios')->where('id', $usuarioId)->first();
+
+        return $data ? true : false;
+    }
+
+    /**
      * Method to save account.
      */
     public function save(Conta $conta): array

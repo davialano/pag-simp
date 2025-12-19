@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace App\Controller\Conta\Depositar;
 
 use App\Service\Conta\Depositar\DepositarContaService;
+use DomainException;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use Throwable;
@@ -44,6 +45,10 @@ class DepositarContaController
             ];
 
             return $this->response->json($this->service->deposit($params))->withStatus(201);
+        } catch (DomainException $de) {
+            return $this->response->json([
+                'errors' => $de->getMessage(),
+            ])->withStatus(406);
         } catch (Throwable $th) {
             return $this->response->json([
                 'errors' => $th->getMessage(),

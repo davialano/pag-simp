@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace App\Controller\Conta\Criar;
 
 use App\Service\Conta\Criar\CriarContaService;
+use DomainException;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use Throwable;
@@ -41,6 +42,10 @@ class CriarContaController
             $usuarioId = (int) $this->request->route('usuarioId');
 
             return $this->response->json($this->service->create($usuarioId))->withStatus(201);
+        } catch (DomainException $de) {
+            return $this->response->json([
+                'errors' => $de->getMessage(),
+            ])->withStatus(406);
         } catch (Throwable $th) {
             return $this->response->json([
                 'errors' => $th->getMessage(),
