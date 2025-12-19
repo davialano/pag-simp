@@ -1,26 +1,27 @@
 <?php
 
 declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 
 namespace App\Domain\Usuario;
 
 use App\Enum\TipoUsuario;
 use InvalidArgumentException;
-use Symfony\Component\Console\Helper\Dumper;
 
 /**
- * class UsuarioFactory
- * 
- * @author <davi-alano/>
+ * class UsuarioFactory.
  */
 final class UsuarioFactory
 {
     /**
      * Method to create user object.
-     * 
-     * @param array $params
-     * 
-     * @return Usuario
      */
     public static function create(array $params): Usuario
     {

@@ -1,6 +1,14 @@
 <?php
 
 declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 
 namespace App\Controller\Conta\Transferir;
 
@@ -15,7 +23,8 @@ class TransferirContaController
         private RequestInterface $request,
         private ResponseInterface $response,
         private TransferirContaService $service
-    ) {}
+    ) {
+    }
 
     public function transferAccount()
     {
@@ -23,13 +32,13 @@ class TransferirContaController
             $params = [
                 'pagadorId' => (int) $this->request->route('pagadorId'),
                 'beneficiarioId' => $this->request->input('beneficiarioId'),
-                'valor' => (float) $this->request->input('valor')
+                'valor' => (float) $this->request->input('valor'),
             ];
 
             return $this->response->json($this->service->transfer($params))->withStatus(201);
         } catch (Throwable $th) {
             return $this->response->json([
-                'errors' => $th->getMessage()
+                'errors' => $th->getMessage(),
             ])->withStatus(500);
         }
     }

@@ -1,27 +1,26 @@
 <?php
 
 declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 
 namespace App\Domain\Usuario;
 
 use InvalidArgumentException;
 
 /**
- * class UsuarioLojista
- * 
- * @author <davi-alano/>
+ * class UsuarioLojista.
  */
 final class UsuarioLojista extends Usuario
 {
     /**
      * Method constructor.
-     * 
-     * @param string $nome
-     * @param string $email
-     * @param string $cnpj
-     * @param string $senha
-     * 
-     * @return void
      */
     public function __construct(
         string $nome,
@@ -38,8 +37,6 @@ final class UsuarioLojista extends Usuario
 
     /**
      * Getter cpf.
-     * 
-     * @return ?string
      */
     public function cpf(): ?string
     {
@@ -48,8 +45,6 @@ final class UsuarioLojista extends Usuario
 
     /**
      * Getter cnpj.
-     * 
-     * @return ?string
      */
     public function cnpj(): ?string
     {

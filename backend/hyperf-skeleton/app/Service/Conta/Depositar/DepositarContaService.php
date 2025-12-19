@@ -1,6 +1,14 @@
 <?php
 
 declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 
 namespace App\Service\Conta\Depositar;
 
@@ -10,6 +18,7 @@ use App\Repository\Conta\Depositar\DepositarContaRepositoryInterface;
 use App\Repository\Log\LogTransacaoRepositoryInterface;
 use App\Repository\Transacao\Depositar\DepositarTransacaoRepositoryInterface;
 use Hyperf\DbConnection\Db;
+use Throwable;
 
 class DepositarContaService
 {
@@ -17,7 +26,8 @@ class DepositarContaService
         private DepositarContaRepositoryInterface $repositoryConta,
         private DepositarTransacaoRepositoryInterface $repositoryTransacao,
         private LogTransacaoRepositoryInterface $repositoryLog,
-    ) {}
+    ) {
+    }
 
     public function deposit(array $params): array
     {
@@ -44,14 +54,14 @@ class DepositarContaService
                 new Log(
                     transacaoId: $transacaoId,
                     status: 'S',
-                    mensagem: 'conta_id ' .  $params['accountId'] . ', ' . 'valor ' . $params['valor']
+                    mensagem: 'conta_id ' . $params['accountId'] . ', valor ' . $params['valor']
                 )
             );
 
             return [
-                'valor_depositado' => $params['valor']
+                'valor_depositado' => $params['valor'],
             ];
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
             $this->repositoryLog->falha(
                 new Log(
                     transacaoId: $transacaoId,

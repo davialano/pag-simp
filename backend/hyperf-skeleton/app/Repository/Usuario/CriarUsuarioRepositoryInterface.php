@@ -1,24 +1,26 @@
 <?php
 
 declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 
 namespace App\Repository\Usuario;
 
 use App\Domain\Usuario\Usuario;
 
 /**
- * interface CriarUsuarioRepositoryInterface
- * 
- * @author <davi-alano/>
+ * interface CriarUsuarioRepositoryInterface.
  */
 interface CriarUsuarioRepositoryInterface
 {
     /**
      * Method to persist user information.
-     * 
-     * @param Usuario $usuario
-     * 
-     * @return array
      */
     public function save(Usuario $usuario): array;
 }

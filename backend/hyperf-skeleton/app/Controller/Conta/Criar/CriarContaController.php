@@ -1,6 +1,14 @@
 <?php
 
 declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 
 namespace App\Controller\Conta\Criar;
 
@@ -10,9 +18,7 @@ use Hyperf\HttpServer\Contract\ResponseInterface;
 use Throwable;
 
 /**
- * class CriarContaController
- * 
- * @author <davi-alano/>
+ * class CriarContaController.
  */
 class CriarContaController
 {
@@ -20,7 +26,8 @@ class CriarContaController
         private RequestInterface $request,
         private ResponseInterface $response,
         private CriarContaService $service
-    ) {}
+    ) {
+    }
 
     public function createAccount()
     {
@@ -30,7 +37,7 @@ class CriarContaController
             return $this->response->json($this->service->create($usuarioId))->withStatus(201);
         } catch (Throwable $th) {
             return $this->response->json([
-                'errors' => $th->getMessage()
+                'errors' => $th->getMessage(),
             ])->withStatus(500);
         }
     }

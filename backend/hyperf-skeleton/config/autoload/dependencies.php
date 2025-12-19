@@ -1,7 +1,14 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 use App\Domain\Autorizador\AutorizadorInterface;
 use App\Domain\Notificacao\NotificacaoInterface;
 use App\Repository\Conta\Criar\CriarContaRepository;
@@ -21,7 +28,7 @@ use App\Repository\Usuario\CriarUsuarioRepositoryInterface;
 use App\Service\Autorizador\AutorizadorService;
 use App\Service\Notificacao\NotificacaoService;
 
-/**
+/*
  * This file is part of Hyperf.
  *
  * @link     https://www.hyperf.io
@@ -46,5 +53,5 @@ return [
 
     AutorizadorInterface::class => AutorizadorService::class,
 
-    NotificacaoInterface::class => NotificacaoService::class
+    NotificacaoInterface::class => NotificacaoService::class,
 ];

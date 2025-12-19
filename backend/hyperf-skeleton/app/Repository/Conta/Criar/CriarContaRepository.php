@@ -1,6 +1,14 @@
 <?php
 
 declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 
 namespace App\Repository\Conta\Criar;
 
@@ -8,9 +16,7 @@ use App\Domain\Conta\Conta;
 use Hyperf\DbConnection\Db;
 
 /**
- * class CriarContaRepository
- * 
- * @author <davi-alano/>
+ * class CriarContaRepository.
  */
 class CriarContaRepository implements CriarContaRepositoryInterface
 {
@@ -20,14 +26,14 @@ class CriarContaRepository implements CriarContaRepositoryInterface
             'numero' => $conta->numero(),
             'usuario_id' => $conta->usuarioId(),
             'saldo' => $conta->saldo(),
-            'created_at' => date('Y-m-d H:i:s')
+            'created_at' => date('Y-m-d H:i:s'),
         ]);
 
         return [
             'id' => $contaId,
             'numero' => $conta->numero(),
             'usuarioId' => $conta->usuarioId(),
-            'saldo' => $conta->saldo()
+            'saldo' => $conta->saldo(),
         ];
     }
 }

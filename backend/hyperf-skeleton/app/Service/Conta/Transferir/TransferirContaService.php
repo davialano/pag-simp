@@ -1,6 +1,14 @@
 <?php
 
 declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 
 namespace App\Service\Conta\Transferir;
 
@@ -13,6 +21,7 @@ use App\Repository\Log\LogTransacaoRepositoryInterface;
 use App\Repository\Transacao\Transferir\TransferirTransacaoRepositoryInterface;
 use DomainException;
 use Hyperf\DbConnection\Db;
+use Throwable;
 
 class TransferirContaService
 {
@@ -22,7 +31,8 @@ class TransferirContaService
         private LogTransacaoRepositoryInterface $repositoryLog,
         private AutorizadorInterface $autorizador,
         private NotificacaoInterface $notificacao
-    ) {}
+    ) {
+    }
 
     public function transfer(array $params)
     {
@@ -58,7 +68,7 @@ class TransferirContaService
                 new Log(
                     transacaoId: $transacaoId,
                     status: 'S',
-                    mensagem: 'pagador_id ' . $params['pagadorId'] . ', ' . 'beneficiario_id ' . $params['beneficiarioId'] . ', ' . 'valor ' . $params['valor']
+                    mensagem: 'pagador_id ' . $params['pagadorId'] . ', beneficiario_id ' . $params['beneficiarioId'] . ', valor ' . $params['valor']
                 )
             );
 
@@ -67,9 +77,9 @@ class TransferirContaService
             // }
 
             return [
-                'valor_transferido' => $params['valor']
+                'valor_transferido' => $params['valor'],
             ];
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
             $this->repositoryLog->falha(
                 new Log(
                     transacaoId: $transacaoId,

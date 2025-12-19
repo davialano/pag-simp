@@ -1,6 +1,14 @@
 <?php
 
 declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 
 namespace App\Domain\Log;
 
@@ -10,7 +18,8 @@ class Log
         private ?int $transacaoId,
         private string $status,
         private string $mensagem
-    ) {}
+    ) {
+    }
 
     public function transacaoId(): ?int
     {
