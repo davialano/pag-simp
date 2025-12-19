@@ -6,6 +6,7 @@ namespace App\Domain\Usuario;
 
 use App\Enum\TipoUsuario;
 use InvalidArgumentException;
+use Symfony\Component\Console\Helper\Dumper;
 
 /**
  * class UsuarioFactory
@@ -23,11 +24,13 @@ final class UsuarioFactory
      */
     public static function create(array $params): Usuario
     {
-        if (! isset($params['tipoUsuario'])) {
+        $tipoUsuario = $params['tipoUsuario'] ?? $params['tipo_usuario'] ?? null;
+
+        if ($tipoUsuario === null) {
             throw new InvalidArgumentException('Tipo de usuário é obrigatório');
         }
 
-        return match (TipoUsuario::from($params['tipoUsuario'])) {
+        return match (TipoUsuario::from($tipoUsuario)) {
             TipoUsuario::Comum => new UsuarioComum(
                 nome: $params['nome'],
                 email: $params['email'],

@@ -55,4 +55,9 @@ final class UsuarioLojista extends Usuario
     {
         return $this->cnpj;
     }
+
+    public function isLojista(): bool
+    {
+        return true;
+    }
 }

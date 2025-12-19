@@ -13,7 +13,6 @@ use InvalidArgumentException;
  */
 final class UsuarioComum extends Usuario
 {
-
     /**
      * Method constructor.
      * 
@@ -55,5 +54,10 @@ final class UsuarioComum extends Usuario
     public function cnpj(): ?string
     {
         return null;
+    }
+
+    public function isLojista(): bool
+    {
+        return false;
     }
 }
