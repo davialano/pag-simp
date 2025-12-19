@@ -19,7 +19,7 @@ This file is part of Hyperf.
 EOF;
 
 return (new PhpCsFixer\Config())
-    ->setRiskyAllowed(true)
+    ->setRiskyAllowed(false)
     ->setRules([
         '@PSR2' => true,
         '@Symfony' => true,
@@ -57,13 +57,14 @@ return (new PhpCsFixer\Config())
         ],
         'ordered_imports' => [
             'imports_order' => [
-                'class', 'function', 'const',
+                'class',
+                'function',
+                'const',
             ],
             'sort_algorithm' => 'alpha',
         ],
         'single_line_comment_style' => [
-            'comment_types' => [
-            ],
+            'comment_types' => [],
         ],
         'yoda_style' => [
             'always_move_variable' => false,
@@ -101,6 +102,7 @@ return (new PhpCsFixer\Config())
             ->exclude('public')
             ->exclude('runtime')
             ->exclude('vendor')
+            ->exclude('migrations')
             ->in(__DIR__)
     )
     ->setUsingCache(false);
