@@ -8,22 +8,22 @@ use App\Domain\Usuario\Usuario;
 use Hyperf\DbConnection\Db;
 
 /**
- * class UsuarioRepository
+ * class CriarUsuarioRepository
  * 
  * @author <davi-alano/>
  */
-class UsuarioRepository implements UsuarioRepositoryInterface
+class CriarUsuarioRepository implements CriarUsuarioRepositoryInterface
 {
     /**
      * Method to persist user information.
      * 
      * @param Usuario $usuario
      * 
-     * @return Usuario
+     * @return array
      */
-    public function save(Usuario $usuario): Usuario
+    public function save(Usuario $usuario): array
     {
-        Db::table('usuarios')->insert([
+        $usuarioId = Db::table('usuarios')->insertGetId([
             'nome' => $usuario->nome(),
             'cpf' => $usuario->cpf(),
             'cnpj' => $usuario->cnpj(),
@@ -33,6 +33,11 @@ class UsuarioRepository implements UsuarioRepositoryInterface
             'created_at' => date('Y-m-d H:i:s')
         ]);
 
-        return $usuario;
+        return [
+            'id' => $usuarioId,
+            'nome' => $usuario->nome(),
+            'email' => $usuario->email(),
+            'tipoUsuario' => $usuario->tipo()
+        ];
     }
 }

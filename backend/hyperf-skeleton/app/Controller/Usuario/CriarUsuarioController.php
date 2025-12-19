@@ -4,32 +4,32 @@ declare(strict_types=1);
 
 namespace App\Controller\Usuario;
 
-use App\Service\Usuario\UsuarioService;
+use App\Service\Usuario\CriarUsuarioService;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use InvalidArgumentException;
 use Throwable;
 
 /**
- * class UsuarioController
+ * class CriarUsuarioController
  * 
  * @author <davi-alano/>
  */
-class UsuarioController
+class CriarUsuarioController
 {
     /**
      * Method constructor.
      * 
      * @param RequestInterface $request
      * @param ResponseInterface $response
-     * @param UsuarioService $service
+     * @param CriarUsuarioService $service
      * 
      * @return void
      */
     public function __construct(
         private RequestInterface $request,
         private ResponseInterface $response,
-        private UsuarioService $service,
+        private CriarUsuarioService $service,
     ) {}
 
     public function createUser()
@@ -44,7 +44,7 @@ class UsuarioController
                 'tipoUsuario' => $this->request->input('tipoUsuario')
             ];
 
-            return $this->response->json([$this->service->create($params)])->withStatus(201);
+            return $this->response->json($this->service->create($params))->withStatus(201);
         } catch (InvalidArgumentException $iae) {
             return $this->response->json([
                 'errors' => $iae->getMessage()

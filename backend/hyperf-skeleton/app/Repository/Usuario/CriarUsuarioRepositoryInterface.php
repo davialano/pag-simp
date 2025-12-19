@@ -7,18 +7,18 @@ namespace App\Repository\Usuario;
 use App\Domain\Usuario\Usuario;
 
 /**
- * interface UsuarioRepositoryInterface
+ * interface CriarUsuarioRepositoryInterface
  * 
  * @author <davi-alano/>
  */
-interface UsuarioRepositoryInterface
+interface CriarUsuarioRepositoryInterface
 {
     /**
      * Method to persist user information.
      * 
      * @param Usuario $usuario
      * 
-     * @return Usuario
+     * @return array
      */
-    public function save(Usuario $usuario): Usuario;
+    public function save(Usuario $usuario): array;
 }

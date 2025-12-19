@@ -5,24 +5,24 @@ declare(strict_types=1);
 namespace App\Service\Usuario;
 
 use App\Domain\Usuario\UsuarioFactory;
-use App\Repository\Usuario\UsuarioRepositoryInterface;
+use App\Repository\Usuario\CriarUsuarioRepositoryInterface;
 
 /**
- * class UsuarioService
+ * class CriarUsuarioService
  * 
  * @author <davi-alano/>
  */
-final class UsuarioService
+final class CriarUsuarioService
 {
     /**
      * Method constructor.
      * 
-     * @param UsuarioRepositoryInterface $repository
+     * @param CriarUsuarioRepositoryInterface $repository
      * 
      * @return void
      */
     public function __construct(
-        private UsuarioRepositoryInterface $repository
+        private CriarUsuarioRepositoryInterface $repository
     ) {}
 
     /**
@@ -30,9 +30,9 @@ final class UsuarioService
      * 
      * @param array $params
      * 
-     * @return Usuario 
+     * @return array 
      */
-    public function create(array $params)
+    public function create(array $params): array
     {
         $usuario = UsuarioFactory::create($params);
 
