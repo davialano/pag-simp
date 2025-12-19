@@ -71,21 +71,25 @@ final class Conta
     /**
      * Method to check elegibility.
      */
-    public function podeEfetuarDeposito(): void
+    public function podeEfetuarDeposito(): bool
     {
         if ($this->usuario->isLojista()) {
             throw new DomainException('Lojistas não podem efetuar depósitos');
         }
+
+        return true;
     }
 
     /**
      * Method to check elegibility.
      */
-    public function podeEfetuarTransferencia(): void
+    public function podeEfetuarTransferencia(): bool
     {
         if ($this->usuario->isLojista()) {
             throw new DomainException('Lojistas não podem efetuar transferências');
         }
+
+        return true;
     }
 
     /**
