@@ -21,13 +21,6 @@ final class UsuarioComum extends Usuario
 {
     /**
      * Method constructor.
-     * 
-     * @param string $nome
-     * @param string $email
-     * @param string $cpf
-     * @param string $senha
-     * 
-     * @return void
      */
     public function __construct(
         string $nome,
@@ -44,8 +37,6 @@ final class UsuarioComum extends Usuario
 
     /**
      * Getter cpf.
-     * 
-     * @return ?string
      */
     public function cpf(): ?string
     {
@@ -54,8 +45,6 @@ final class UsuarioComum extends Usuario
 
     /**
      * Getter cnpj.
-     * 
-     * @return ?string
      */
     public function cnpj(): ?string
     {
@@ -64,8 +53,6 @@ final class UsuarioComum extends Usuario
 
     /**
      * Method to check if user is lojista.
-     * 
-     * @return bool
      */
     public function isLojista(): bool
     {

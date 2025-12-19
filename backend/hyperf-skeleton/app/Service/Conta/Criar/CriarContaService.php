@@ -16,27 +16,20 @@ use App\Domain\Conta\Conta;
 use App\Repository\Conta\Criar\CriarContaRepositoryInterface;
 
 /**
- * class CriarContaService
+ * class CriarContaService.
  */
 final class CriarContaService
 {
     /**
      * Method constructor.
-     * 
-     * @param CriarContaRepositoryInterface $repository
-     * 
-     * @return void
      */
     public function __construct(
         private CriarContaRepositoryInterface $repository
-    ) {}
+    ) {
+    }
 
     /**
      * Method to create account.
-     * 
-     * @param int $usuarioId
-     * 
-     * @return array
      */
     public function create(int $usuarioId): array
     {
@@ -52,8 +45,6 @@ final class CriarContaService
 
     /**
      * Method to generate account number.
-     * 
-     * @return int
      */
     private function genAccountNumber(): int
     {

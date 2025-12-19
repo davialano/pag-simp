@@ -13,14 +13,12 @@ declare(strict_types=1);
 namespace App\Domain\Notificacao;
 
 /**
- * interface NotificacaoInterface
+ * interface NotificacaoInterface.
  */
 interface NotificacaoInterface
 {
     /**
      * Method to send notification.
-     * 
-     * @return bool
      */
     public function notificar(): bool;
 }

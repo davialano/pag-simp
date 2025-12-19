@@ -15,26 +15,17 @@ namespace App\Repository\Conta\Depositar;
 use App\Domain\Conta\Conta;
 
 /**
- * interface DepositarContaRepositoryInterface
+ * interface DepositarContaRepositoryInterface.
  */
 interface DepositarContaRepositoryInterface
 {
     /**
      * Method to search for account.
-     * 
-     * @param int $accountId
-     * 
-     * @return Conta
      */
     public function search(int $accountId): Conta;
 
     /**
      * Method to save deposit.
-     * 
-     * @param Conta $conta
-     * @param int $accountId
-     * 
-     * @return array
      */
     public function save(Conta $conta, int $accountId): array;
 }

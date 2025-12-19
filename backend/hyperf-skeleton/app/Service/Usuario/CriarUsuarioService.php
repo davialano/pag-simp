@@ -16,27 +16,20 @@ use App\Domain\Usuario\UsuarioFactory;
 use App\Repository\Usuario\CriarUsuarioRepositoryInterface;
 
 /**
- * class CriarUsuarioService
+ * class CriarUsuarioService.
  */
 final class CriarUsuarioService
 {
     /**
      * Method constructor.
-     * 
-     * @param CriarUsuarioRepositoryInterface $repository
-     * 
-     * @return void
      */
     public function __construct(
         private CriarUsuarioRepositoryInterface $repository
-    ) {}
+    ) {
+    }
 
     /**
      * Method to create user.
-     * 
-     * @param array $params
-     * 
-     * @return array
      */
     public function create(array $params): array
     {

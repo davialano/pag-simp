@@ -25,18 +25,13 @@ class CriarUsuarioController
 {
     /**
      * Method constructor.
-     * 
-     * @param RequestInterface $request
-     * @param ResponseInterface $response
-     * @param CriarUsuarioService $service
-     * 
-     * @return void
      */
     public function __construct(
         private RequestInterface $request,
         private ResponseInterface $response,
         private CriarUsuarioService $service,
-    ) {}
+    ) {
+    }
 
     /**
      * Method to create user.

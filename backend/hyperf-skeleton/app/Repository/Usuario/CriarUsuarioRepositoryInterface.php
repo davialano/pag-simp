@@ -15,16 +15,12 @@ namespace App\Repository\Usuario;
 use App\Domain\Usuario\Usuario;
 
 /**
- * interface CriarUsuarioRepositoryInterface
+ * interface CriarUsuarioRepositoryInterface.
  */
 interface CriarUsuarioRepositoryInterface
 {
     /**
      * Method to save user.
-     * 
-     * @param Usuario $usuario
-     * 
-     * @return array
      */
     public function save(Usuario $usuario): array;
 }

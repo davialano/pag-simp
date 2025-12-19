@@ -24,20 +24,14 @@ use Hyperf\DbConnection\Db;
 use Throwable;
 
 /**
- * class TransferirContaService
+ * class TransferirContaService.
  */
 final class TransferirContaService
 {
     /**
      * Method constructor.
-     * 
-     * @param TransferirContaRepositoryInterface $repositoryConta
+     *
      * @param TransferirTransacaoRepositoryInteface $repositoryTransacao
-     * @param LogTransacaoRepositoryInterface $repositoryLog
-     * @param AutorizadorInterface $autorizador
-     * @param NotificacaoInterface $notificacao
-     * 
-     * @return void
      */
     public function __construct(
         private TransferirContaRepositoryInterface $repositoryConta,
@@ -45,14 +39,11 @@ final class TransferirContaService
         private LogTransacaoRepositoryInterface $repositoryLog,
         private AutorizadorInterface $autorizador,
         private NotificacaoInterface $notificacao
-    ) {}
+    ) {
+    }
 
     /**
      * Method to transfer in account.
-     * 
-     * @param array $params
-     * 
-     * @return array
      */
     public function transfer(array $params): array
     {

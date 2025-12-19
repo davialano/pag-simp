@@ -13,31 +13,23 @@ declare(strict_types=1);
 namespace App\Domain\Transacao;
 
 /**
- * class Transacao
+ * class Transacao.
  */
 final class Transacao
 {
     /**
      * Method constructor.
-     * 
-     * @param float $valor
-     * @param int $pagador
-     * @param ?int $beneficiario
-     * @param string $tipo
-     * 
-     * @return void
      */
     public function __construct(
         private float $valor,
         private int $pagador,
         private ?int $beneficiario,
         private string $tipo
-    ) {}
+    ) {
+    }
 
     /**
      * Getter valor.
-     * 
-     * @return float
      */
     public function valor(): float
     {
@@ -46,8 +38,6 @@ final class Transacao
 
     /**
      * Getter pagador.
-     * 
-     * @return int
      */
     public function pagador(): int
     {
@@ -56,8 +46,6 @@ final class Transacao
 
     /**
      * Getter beneficiario.
-     * 
-     * @return ?int
      */
     public function beneficiario(): ?int
     {
@@ -66,8 +54,6 @@ final class Transacao
 
     /**
      * Getter tipo.
-     * 
-     * @return string
      */
     public function tipo(): string
     {

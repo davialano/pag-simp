@@ -15,16 +15,12 @@ namespace App\Repository\Transacao\Transferir;
 use App\Domain\Transacao\Transacao;
 
 /**
- * interface TransferirTransacaoRepositoryInterface
+ * interface TransferirTransacaoRepositoryInterface.
  */
 interface TransferirTransacaoRepositoryInterface
 {
     /**
      * Method to save transfer transaction.
-     * 
-     * @param Transacao $transacao
-     * 
-     * @return int
      */
     public function save(Transacao $transacao): int;
 }

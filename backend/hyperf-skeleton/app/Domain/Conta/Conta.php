@@ -23,25 +23,17 @@ final class Conta
 {
     /**
      * Method constructor.
-     * 
-     * @param int $numero
-     * @param int $usuarioId
-     * @param ?Usuario $usuario
-     * @param float $saldo
-     * 
-     * @return void
      */
     public function __construct(
         private int $numero,
         private int $usuarioId,
         private ?Usuario $usuario,
         private float $saldo
-    ) {}
+    ) {
+    }
 
     /**
      * Getter numero.
-     * 
-     * @return int
      */
     public function numero(): int
     {
@@ -50,8 +42,6 @@ final class Conta
 
     /**
      * Getter usuarioId.
-     * 
-     * @return int
      */
     public function usuarioId(): int
     {
@@ -60,8 +50,6 @@ final class Conta
 
     /**
      * Getter saldo.
-     * 
-     * @return float
      */
     public function saldo(): float
     {
@@ -70,10 +58,6 @@ final class Conta
 
     /**
      * Method to deposit in account.
-     * 
-     * @param float $valor
-     * 
-     * @return void
      */
     public function depositar(float $valor): void
     {
@@ -86,8 +70,6 @@ final class Conta
 
     /**
      * Method to check elegibility.
-     * 
-     * @return void
      */
     public function podeEfetuarDeposito(): void
     {
@@ -98,8 +80,6 @@ final class Conta
 
     /**
      * Method to check elegibility.
-     * 
-     * @return void
      */
     public function podeEfetuarTransferencia(): void
     {
@@ -110,10 +90,6 @@ final class Conta
 
     /**
      * Method to transfer in account.
-     * 
-     * @param float $valor
-     * 
-     * @return void
      */
     public function transferir(float $valor): void
     {

@@ -16,7 +16,7 @@ use App\Domain\Autorizador\AutorizadorInterface;
 use Hyperf\Guzzle\ClientFactory;
 
 /**
- * class AutorizadorService
+ * class AutorizadorService.
  */
 final class AutorizadorService implements AutorizadorInterface
 {
@@ -24,10 +24,6 @@ final class AutorizadorService implements AutorizadorInterface
 
     /**
      * Method constructor.
-     * 
-     * @param ClientFactory $clientFactory
-     * 
-     * @return void
      */
     public function __construct(ClientFactory $clientFactory)
     {
@@ -36,8 +32,6 @@ final class AutorizadorService implements AutorizadorInterface
 
     /**
      * Method to autorize transfer request.
-     * 
-     * @return bool
      */
     public function autorizar(): bool
     {

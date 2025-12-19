@@ -16,7 +16,7 @@ use App\Domain\Notificacao\NotificacaoInterface;
 use Hyperf\Guzzle\ClientFactory;
 
 /**
- * class NotificacaoService
+ * class NotificacaoService.
  */
 final class NotificacaoService implements NotificacaoInterface
 {
@@ -24,10 +24,6 @@ final class NotificacaoService implements NotificacaoInterface
 
     /**
      * Method constructor.
-     * 
-     * @param ClientFactory $clientFactory
-     * 
-     * @return void
      */
     public function __construct(private ClientFactory $clientFactory)
     {
@@ -36,8 +32,6 @@ final class NotificacaoService implements NotificacaoInterface
 
     /**
      * Method to notificate payee.
-     * 
-     * @return bool
      */
     public function notificar(): bool
     {

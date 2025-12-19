@@ -17,16 +17,12 @@ use App\Domain\Usuario\UsuarioFactory;
 use Hyperf\DbConnection\Db;
 
 /**
- * class TransferirContaRepository
+ * class TransferirContaRepository.
  */
 class TransferirContaRepository implements TransferirContaRepositoryInterface
 {
     /**
      * Method to search for account.
-     * 
-     * @param int $pagadorId
-     * 
-     * @return Conta
      */
     public function search(int $pagadorId): Conta
     {
@@ -45,11 +41,6 @@ class TransferirContaRepository implements TransferirContaRepositoryInterface
 
     /**
      * Method to save transfer.
-     * 
-     * @param Conta $conta
-     * @param int $accountId
-     * 
-     * @return array
      */
     public function save(Conta $conta, int $accountId): array
     {

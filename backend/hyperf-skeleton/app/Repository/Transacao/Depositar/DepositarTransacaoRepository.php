@@ -16,16 +16,12 @@ use App\Domain\Transacao\Transacao;
 use Hyperf\DbConnection\Db;
 
 /**
- * class DepositarTransacaoRepository
+ * class DepositarTransacaoRepository.
  */
 class DepositarTransacaoRepository implements DepositarTransacaoRepositoryInterface
 {
     /**
      * Method to save deposit transaction.
-     * 
-     * @param Transacao $transacao
-     * 
-     * @return int
      */
     public function save(Transacao $transacao): int
     {

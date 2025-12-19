@@ -16,16 +16,12 @@ use App\Domain\Log\Log;
 use Hyperf\DbConnection\Db;
 
 /**
- * class LogTransacaoRepository
+ * class LogTransacaoRepository.
  */
 class LogTransacaoRepository implements LogTransacaoRepositoryInterface
 {
     /**
      * Method to save success.
-     * 
-     * @param Log $log
-     * 
-     * @return void
      */
     public function sucesso(Log $log): void
     {
@@ -39,10 +35,6 @@ class LogTransacaoRepository implements LogTransacaoRepositoryInterface
 
     /**
      * Method to save fail.
-     * 
-     * @param Log $log
-     * 
-     * @return void
      */
     public function falha(Log $log): void
     {

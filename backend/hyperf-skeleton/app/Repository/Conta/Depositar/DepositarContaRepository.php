@@ -17,16 +17,12 @@ use App\Domain\Usuario\UsuarioFactory;
 use Hyperf\DbConnection\Db;
 
 /**
- * class DepositarContaRepository
+ * class DepositarContaRepository.
  */
 class DepositarContaRepository implements DepositarContaRepositoryInterface
 {
     /**
      * Method to search for account.
-     * 
-     * @param int $accountId
-     * 
-     * @return Conta
      */
     public function search(int $accountId): Conta
     {
@@ -45,11 +41,6 @@ class DepositarContaRepository implements DepositarContaRepositoryInterface
 
     /**
      * Method to save deposit.
-     * 
-     * @param Conta $conta
-     * @param int $accountId
-     * 
-     * @return array
      */
     public function save(Conta $conta, int $accountId): array
     {
