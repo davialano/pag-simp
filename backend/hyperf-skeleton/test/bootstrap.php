@@ -9,6 +9,7 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+
 use Hyperf\Contract\ApplicationInterface;
 use Hyperf\Di\ClassLoader;
 use Hyperf\Engine\DefaultOption;
@@ -22,13 +23,14 @@ use Swoole\Runtime;
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+
 ini_set('display_errors', 'on');
 ini_set('display_startup_errors', 'on');
 
 error_reporting(E_ALL);
-date_default_timezone_set('Asia/Shanghai');
+date_default_timezone_set('America/Sao_Paulo');
 
-Runtime::enableCoroutine(true);
+Runtime::enableCoroutine(SWOOLE_HOOK_ALL);
 
 ! defined('BASE_PATH') && define('BASE_PATH', dirname(__DIR__, 1));
 
