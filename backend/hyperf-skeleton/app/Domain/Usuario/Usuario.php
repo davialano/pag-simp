@@ -19,17 +19,25 @@ abstract class Usuario
 {
     /**
      * Method constructor.
+     * 
+     * @param string $nome
+     * @param string $email
+     * @param string $tipoUsuario
+     * @param string $senha
+     * 
+     * @return void
      */
     public function __construct(
         protected string $nome,
         protected string $email,
         protected string $tipoUsuario,
         protected string $senha
-    ) {
-    }
+    ) {}
 
     /**
      * Getter nome.
+     * 
+     * @return string
      */
     public function nome(): string
     {
@@ -38,6 +46,8 @@ abstract class Usuario
 
     /**
      * Getter email.
+     * 
+     * @return string
      */
     public function email(): string
     {
@@ -46,6 +56,8 @@ abstract class Usuario
 
     /**
      * Getter tipo.
+     * 
+     * @return string
      */
     public function tipo(): string
     {
@@ -54,6 +66,8 @@ abstract class Usuario
 
     /**
      * Getter senha.
+     * 
+     * @return string
      */
     public function senha(): string
     {
@@ -62,13 +76,22 @@ abstract class Usuario
 
     /**
      * Getter cpf.
+     * 
+     * @return ?string
      */
     abstract public function cpf(): ?string;
 
     /**
      * Getter cnpj.
+     * 
+     * @return ?string
      */
     abstract public function cnpj(): ?string;
 
+    /**
+     * Method to check if user is lojista.
+     * 
+     * @return bool
+     */
     abstract public function isLojista(): bool;
 }

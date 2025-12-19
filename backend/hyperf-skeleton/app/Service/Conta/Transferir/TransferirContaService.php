@@ -23,18 +23,38 @@ use DomainException;
 use Hyperf\DbConnection\Db;
 use Throwable;
 
-class TransferirContaService
+/**
+ * class TransferirContaService
+ */
+final class TransferirContaService
 {
+    /**
+     * Method constructor.
+     * 
+     * @param TransferirContaRepositoryInterface $repositoryConta
+     * @param TransferirTransacaoRepositoryInteface $repositoryTransacao
+     * @param LogTransacaoRepositoryInterface $repositoryLog
+     * @param AutorizadorInterface $autorizador
+     * @param NotificacaoInterface $notificacao
+     * 
+     * @return void
+     */
     public function __construct(
         private TransferirContaRepositoryInterface $repositoryConta,
         private TransferirTransacaoRepositoryInterface $repositoryTransacao,
         private LogTransacaoRepositoryInterface $repositoryLog,
         private AutorizadorInterface $autorizador,
         private NotificacaoInterface $notificacao
-    ) {
-    }
+    ) {}
 
-    public function transfer(array $params)
+    /**
+     * Method to transfer in account.
+     * 
+     * @param array $params
+     * 
+     * @return array
+     */
+    public function transfer(array $params): array
     {
         $transacaoId = null;
 

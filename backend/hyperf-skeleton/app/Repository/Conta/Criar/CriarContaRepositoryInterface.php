@@ -14,7 +14,17 @@ namespace App\Repository\Conta\Criar;
 
 use App\Domain\Conta\Conta;
 
+/**
+ * interface CriarContaRepositoryInterface
+ */
 interface CriarContaRepositoryInterface
 {
+    /**
+     * Method to save account.
+     * 
+     * @param Conta $conta
+     * 
+     * @return array
+     */
     public function save(Conta $conta): array;
 }

@@ -21,29 +21,60 @@ use InvalidArgumentException;
  */
 final class Conta
 {
+    /**
+     * Method constructor.
+     * 
+     * @param int $numero
+     * @param int $usuarioId
+     * @param ?Usuario $usuario
+     * @param float $saldo
+     * 
+     * @return void
+     */
     public function __construct(
         private int $numero,
         private int $usuarioId,
         private ?Usuario $usuario,
         private float $saldo
-    ) {
-    }
+    ) {}
 
+    /**
+     * Getter numero.
+     * 
+     * @return int
+     */
     public function numero(): int
     {
         return $this->numero;
     }
 
+    /**
+     * Getter usuarioId.
+     * 
+     * @return int
+     */
     public function usuarioId(): int
     {
         return $this->usuarioId;
     }
 
+    /**
+     * Getter saldo.
+     * 
+     * @return float
+     */
     public function saldo(): float
     {
         return $this->saldo;
     }
 
+    /**
+     * Method to deposit in account.
+     * 
+     * @param float $valor
+     * 
+     * @return void
+     */
     public function depositar(float $valor): void
     {
         if ($valor <= 0) {
@@ -53,6 +84,11 @@ final class Conta
         $this->saldo += $valor;
     }
 
+    /**
+     * Method to check elegibility.
+     * 
+     * @return void
+     */
     public function podeEfetuarDeposito(): void
     {
         if ($this->usuario->isLojista()) {
@@ -60,6 +96,11 @@ final class Conta
         }
     }
 
+    /**
+     * Method to check elegibility.
+     * 
+     * @return void
+     */
     public function podeEfetuarTransferencia(): void
     {
         if ($this->usuario->isLojista()) {
@@ -67,6 +108,13 @@ final class Conta
         }
     }
 
+    /**
+     * Method to transfer in account.
+     * 
+     * @param float $valor
+     * 
+     * @return void
+     */
     public function transferir(float $valor): void
     {
         if ($valor <= 0) {

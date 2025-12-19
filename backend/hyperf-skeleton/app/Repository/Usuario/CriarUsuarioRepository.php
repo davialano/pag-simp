@@ -16,12 +16,16 @@ use App\Domain\Usuario\Usuario;
 use Hyperf\DbConnection\Db;
 
 /**
- * class CriarUsuarioRepository.
+ * class CriarUsuarioRepository
  */
 class CriarUsuarioRepository implements CriarUsuarioRepositoryInterface
 {
     /**
-     * Method to persist user information.
+     * Method to save user.
+     * 
+     * @param Usuario $usuario
+     * 
+     * @return array
      */
     public function save(Usuario $usuario): array
     {

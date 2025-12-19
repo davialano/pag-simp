@@ -12,7 +12,15 @@ declare(strict_types=1);
 
 namespace App\Domain\Autorizador;
 
+/**
+ * interface AutorizadorInterface
+ */
 interface AutorizadorInterface
 {
+    /**
+     * Method to autorize transfer request.
+     * 
+     * @return bool
+     */
     public function autorizar(): bool;
 }

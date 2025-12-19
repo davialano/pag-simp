@@ -15,8 +15,18 @@ namespace App\Repository\Transacao\Transferir;
 use App\Domain\Transacao\Transacao;
 use Hyperf\DbConnection\Db;
 
+/**
+ * class TransferirTransacaoRepository
+ */
 class TransferirTransacaoRepository implements TransferirTransacaoRepositoryInterface
 {
+    /**
+     * Method to save transfer transaction.
+     * 
+     * @param Transacao $transacao
+     * 
+     * @return int
+     */
     public function save(Transacao $transacao): int
     {
         return Db::table('transacoes')->insertGetId([

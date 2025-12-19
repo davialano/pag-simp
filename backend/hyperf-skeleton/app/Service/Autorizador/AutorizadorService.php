@@ -15,15 +15,30 @@ namespace App\Service\Autorizador;
 use App\Domain\Autorizador\AutorizadorInterface;
 use Hyperf\Guzzle\ClientFactory;
 
+/**
+ * class AutorizadorService
+ */
 final class AutorizadorService implements AutorizadorInterface
 {
     private $client;
 
+    /**
+     * Method constructor.
+     * 
+     * @param ClientFactory $clientFactory
+     * 
+     * @return void
+     */
     public function __construct(ClientFactory $clientFactory)
     {
         $this->client = $clientFactory->create();
     }
 
+    /**
+     * Method to autorize transfer request.
+     * 
+     * @return bool
+     */
     public function autorizar(): bool
     {
         $response = $this->client->request('GET', 'https://util.devi.tools/api/v2/authorize');

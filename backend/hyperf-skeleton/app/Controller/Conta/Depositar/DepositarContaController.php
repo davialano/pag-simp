@@ -17,15 +17,29 @@ use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use Throwable;
 
+/**
+ * class DepositarContaController
+ */
 class DepositarContaController
 {
+    /**
+     * Method constructor.
+     * 
+     * @param RequestInterface $request
+     * @param ResponseInterface $response
+     * @param DepositarContaService $service
+     * 
+     * @return void
+     */
     public function __construct(
         private RequestInterface $request,
         private ResponseInterface $response,
         private DepositarContaService $service
-    ) {
-    }
+    ) {}
 
+    /**
+     * Method to deposit in account.
+     */
     public function depositAccount()
     {
         try {

@@ -20,6 +20,13 @@ use Hyperf\DbConnection\Db;
  */
 class CriarContaRepository implements CriarContaRepositoryInterface
 {
+    /**
+     * Method to save account.
+     * 
+     * @param Conta $conta
+     * 
+     * @return array
+     */
     public function save(Conta $conta): array
     {
         $contaId = Db::table('contas')->insertGetId([

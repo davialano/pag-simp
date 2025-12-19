@@ -15,15 +15,30 @@ namespace App\Service\Notificacao;
 use App\Domain\Notificacao\NotificacaoInterface;
 use Hyperf\Guzzle\ClientFactory;
 
-class NotificacaoService implements NotificacaoInterface
+/**
+ * class NotificacaoService
+ */
+final class NotificacaoService implements NotificacaoInterface
 {
     private $client;
 
+    /**
+     * Method constructor.
+     * 
+     * @param ClientFactory $clientFactory
+     * 
+     * @return void
+     */
     public function __construct(private ClientFactory $clientFactory)
     {
         $this->client = $clientFactory->create();
     }
 
+    /**
+     * Method to notificate payee.
+     * 
+     * @return bool
+     */
     public function notificar(): bool
     {
         $response = $this->client->request('POST', 'https://util.devi.tools/api/v1/notify');

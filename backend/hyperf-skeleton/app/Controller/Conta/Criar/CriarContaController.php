@@ -22,13 +22,24 @@ use Throwable;
  */
 class CriarContaController
 {
+    /**
+     * Method constructor.
+     * 
+     * @param RequestInterface $request
+     * @param ResponseInterface $response
+     * @param CriarContaService $service
+     * 
+     * @return void
+     */
     public function __construct(
         private RequestInterface $request,
         private ResponseInterface $response,
         private CriarContaService $service
-    ) {
-    }
+    ) {}
 
+    /**
+     * Method to create account.
+     */
     public function createAccount()
     {
         try {

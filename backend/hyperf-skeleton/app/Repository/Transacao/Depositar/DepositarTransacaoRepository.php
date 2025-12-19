@@ -15,8 +15,18 @@ namespace App\Repository\Transacao\Depositar;
 use App\Domain\Transacao\Transacao;
 use Hyperf\DbConnection\Db;
 
+/**
+ * class DepositarTransacaoRepository
+ */
 class DepositarTransacaoRepository implements DepositarTransacaoRepositoryInterface
 {
+    /**
+     * Method to save deposit transaction.
+     * 
+     * @param Transacao $transacao
+     * 
+     * @return int
+     */
     public function save(Transacao $transacao): int
     {
         return Db::table('transacoes')->insertGetId([

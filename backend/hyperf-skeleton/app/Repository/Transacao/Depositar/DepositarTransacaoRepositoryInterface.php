@@ -14,7 +14,17 @@ namespace App\Repository\Transacao\Depositar;
 
 use App\Domain\Transacao\Transacao;
 
+/**
+ * interface DepositarTransacaoRepositoryInterface
+ */
 interface DepositarTransacaoRepositoryInterface
 {
+    /**
+     * Method to save deposit transaction.
+     * 
+     * @param Transacao $transacao
+     * 
+     * @return int
+     */
     public function save(Transacao $transacao): int;
 }

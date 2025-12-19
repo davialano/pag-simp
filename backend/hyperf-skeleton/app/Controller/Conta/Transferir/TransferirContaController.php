@@ -17,15 +17,29 @@ use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use Throwable;
 
+/**
+ * class TransferirContaController
+ */
 class TransferirContaController
 {
+    /**
+     * Method constructor.
+     * 
+     * @param RequestInterface $request
+     * @param ResponseInterface $response
+     * @param TransferirContaService $service
+     * 
+     * @return void
+     */
     public function __construct(
         private RequestInterface $request,
         private ResponseInterface $response,
         private TransferirContaService $service
-    ) {
-    }
+    ) {}
 
+    /**
+     * Method to transfer in account.
+     */
     public function transferAccount()
     {
         try {

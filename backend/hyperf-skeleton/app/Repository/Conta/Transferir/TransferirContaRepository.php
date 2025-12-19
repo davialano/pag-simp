@@ -16,8 +16,18 @@ use App\Domain\Conta\Conta;
 use App\Domain\Usuario\UsuarioFactory;
 use Hyperf\DbConnection\Db;
 
+/**
+ * class TransferirContaRepository
+ */
 class TransferirContaRepository implements TransferirContaRepositoryInterface
 {
+    /**
+     * Method to search for account.
+     * 
+     * @param int $pagadorId
+     * 
+     * @return Conta
+     */
     public function search(int $pagadorId): Conta
     {
         $contaData = Db::table('contas')->where('id', $pagadorId)->first();
@@ -33,6 +43,14 @@ class TransferirContaRepository implements TransferirContaRepositoryInterface
         );
     }
 
+    /**
+     * Method to save transfer.
+     * 
+     * @param Conta $conta
+     * @param int $accountId
+     * 
+     * @return array
+     */
     public function save(Conta $conta, int $accountId): array
     {
         Db::table('contas')->where('id', $accountId)

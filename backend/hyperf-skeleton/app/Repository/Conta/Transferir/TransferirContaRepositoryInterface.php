@@ -14,9 +14,27 @@ namespace App\Repository\Conta\Transferir;
 
 use App\Domain\Conta\Conta;
 
+/**
+ * interface TransferirContaRepositoryInterface
+ */
 interface TransferirContaRepositoryInterface
 {
+    /**
+     * Method to search for account.
+     * 
+     * @param int $pagadorId
+     * 
+     * @return Conta
+     */
     public function search(int $pagadorId): Conta;
 
+    /**
+     * Method to save transfer.
+     * 
+     * @param Conta $conta
+     * @param int $accountId
+     * 
+     * @return array
+     */
     public function save(Conta $conta, int $accountId): array;
 }

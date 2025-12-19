@@ -20,15 +20,33 @@ use App\Repository\Transacao\Depositar\DepositarTransacaoRepositoryInterface;
 use Hyperf\DbConnection\Db;
 use Throwable;
 
-class DepositarContaService
+/**
+ * class DepositarContaService
+ */
+final class DepositarContaService
 {
+    /**
+     * Method constructor.;
+     * 
+     * @param DepositarContaRepositoryInterface $repositoryConta
+     * @param DepositarTransacaoRepositoryInterface $repositoryTransacao
+     * @param LogTransacaoRepositoryInterface $repositoryLog
+     * 
+     * @return void
+     */
     public function __construct(
         private DepositarContaRepositoryInterface $repositoryConta,
         private DepositarTransacaoRepositoryInterface $repositoryTransacao,
         private LogTransacaoRepositoryInterface $repositoryLog,
-    ) {
-    }
+    ) {}
 
+    /**
+     * Method to deposit in account.
+     * 
+     * @param array $params
+     * 
+     * @return array
+     */
     public function deposit(array $params): array
     {
         $transacaoId = null;
