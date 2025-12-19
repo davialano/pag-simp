@@ -81,4 +81,6 @@ abstract class Usuario
      * @return ?string
      */
     abstract public function cnpj(): ?string;
+
+    abstract public function isLojista(): bool;
 }
