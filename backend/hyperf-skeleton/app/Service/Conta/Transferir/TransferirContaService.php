@@ -30,8 +30,6 @@ final class TransferirContaService
 {
     /**
      * Method constructor.
-     *
-     * @param TransferirTransacaoRepositoryInteface $repositoryTransacao
      */
     public function __construct(
         private TransferirContaRepositoryInterface $repositoryConta,
@@ -39,8 +37,7 @@ final class TransferirContaService
         private LogTransacaoRepositoryInterface $repositoryLog,
         private AutorizadorInterface $autorizador,
         private NotificacaoInterface $notificacao
-    ) {
-    }
+    ) {}
 
     /**
      * Method to transfer in account.
